@@ -57,3 +57,20 @@ window.addEventListener('scroll', () => {
 backToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Close the mobile menu when a link is clicked (optional)
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) { // Only close the menu on mobile
+            navMenu.classList.remove('active');
+        }
+    });
+});
